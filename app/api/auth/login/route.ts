@@ -6,7 +6,12 @@ type User = {
   password: string;
 };
 
-const users: User[] = []; // In-memory storage for users (replace with a database in production)
+const users: User[] = [
+  {
+    email: "emma@gmail.com",
+    password: "password",
+  },
+]; // In-memory storage for users (replace with a database in production)
 
 export async function POST(req: Request) {
   const { email, password, keepLoggedIn } = await req.json();
