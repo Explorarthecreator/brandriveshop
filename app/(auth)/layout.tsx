@@ -13,7 +13,7 @@ export default async function RootLayout({
           backgroundImage: "url('/asset/authBackground.jpg')",
         }}
       ></div>
-      <div className="bg-white h-full lg:px-10 flex items-center justify-center px-6">
+      <div className="bg-white h-full lg:px-10 flex items-center justify-center">
         {children}
       </div>
     </main>

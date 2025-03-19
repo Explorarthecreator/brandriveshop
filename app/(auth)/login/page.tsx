@@ -1,69 +1,43 @@
-"use client";
-
-import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-
-const loginUser = async (data: {
-  email: string;
-  password: string;
-  keepLoggedIn: boolean;
-}) => {
-  const response = await fetch("/api/auth/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  if (!response.ok) throw new Error("Login failed");
-  return response.json();
-};
+import LoginForm from "@/components/auth/LoginForm";
 
 export default function Login() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [keepLoggedIn, setKeepLoggedIn] = useState(false);
-
-  const { mutate, isPending, error } = useMutation({
-    mutationFn: loginUser,
-    onSuccess: () => {
-      router.push("/dashboard");
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    mutate({ email, password, keepLoggedIn });
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <label>
+    <div className="space-y-9 lg:space-y-14  w-11/12 max-w-[400px] m-auto">
+      <div className="space-y-2 lg:space-y-4">
+        <h1 className="font-bold text-2xl lg:text-5xl">Welcome back!</h1>
+        <p className="text-sm lg:text-base">
+          Enter your credentials to access your account.
+        </p>
+      </div>
+      <LoginForm />
+      {/* <form onSubmit={handleSubmit}>
         <input
-          type="checkbox"
-          checked={keepLoggedIn}
-          onChange={(e) => setKeepLoggedIn(e.target.checked)}
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
-        Keep me logged in
-      </label>
-      <button type="submit" disabled={isPending}>
-        {isPending ? "Logging in..." : "Login"}
-      </button>
-      {error && <p>{error.message}</p>}
-    </form>
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <label>
+          <input
+            type="checkbox"
+            checked={keepLoggedIn}
+            onChange={(e) => setKeepLoggedIn(e.target.checked)}
+          />
+          Keep me logged in
+        </label>
+        <button type="submit" disabled={isPending}>
+          {isPending ? "Logging in..." : "Login"}
+        </button>
+        {error && <p>{error.message}</p>}
+      </form> */}
+    </div>
   );
 }
