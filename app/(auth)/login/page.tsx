@@ -10,34 +10,6 @@ export default function Login() {
         </p>
       </div>
       <LoginForm />
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <label>
-          <input
-            type="checkbox"
-            checked={keepLoggedIn}
-            onChange={(e) => setKeepLoggedIn(e.target.checked)}
-          />
-          Keep me logged in
-        </label>
-        <button type="submit" disabled={isPending}>
-          {isPending ? "Logging in..." : "Login"}
-        </button>
-        {error && <p>{error.message}</p>}
-      </form> */}
     </div>
   );
 }

@@ -11,9 +11,9 @@ export function middleware(req: NextRequest) {
   }
 
   // Redirect to login if not authenticated and trying to access protected routes
-  if (!token && pathname.startsWith("/dashboard")) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  }
+  // if (!token && pathname.startsWith("/dashboard")) {
+  //   return NextResponse.redirect(new URL("/login", req.url));
+  // }
 
   return NextResponse.next();
 }
