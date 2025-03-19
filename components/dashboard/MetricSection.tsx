@@ -1,20 +1,13 @@
 "use client";
 import { useGetMetricsQuery } from "@/app/(dashboard)/dashboard/mutations";
 import React from "react";
-import { WalletMoney } from "iconsax-react";
+import { KyberNetwork, Profile2User, StatusUp } from "iconsax-react";
 import { Skeleton } from "../ui/skeleton";
 import { formattedMoney } from "@/types/functions";
 
 const MetricSection = () => {
-  const { data, isLoading, isSuccess } = useGetMetricsQuery();
+  const { data, isLoading } = useGetMetricsQuery();
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
-  if (isSuccess) {
-    console.log(data);
-  }
   return (
     <section className="flex overflow-x-auto gap-5 pb-4">
       <div className="w-[19.56rem] h-[9.75rem]  border border-gray-200 rounded-md overflow-hidden shrink-0">
@@ -22,7 +15,7 @@ const MetricSection = () => {
           <div className="flex justify-between items-center">
             <h1 className="font-semibold">Total Users</h1>
             <div className="h-8 w-8 rounded-[0.375rem] bg-accent flex items-center justify-center">
-              <WalletMoney variant="Bold" size={16} className="fill-primary" />
+              <Profile2User variant="Bold" size={16} className="fill-primary" />
             </div>
           </div>
         </div>
@@ -42,7 +35,7 @@ const MetricSection = () => {
           <div className="flex justify-between items-center">
             <h1 className="font-semibold">Active Sessions</h1>
             <div className="h-8 w-8 rounded-[0.375rem] bg-accent flex items-center justify-center">
-              <WalletMoney variant="Bold" size={16} className="fill-primary" />
+              <KyberNetwork variant="Bold" size={16} className="fill-primary" />
             </div>
           </div>
         </div>
@@ -62,7 +55,7 @@ const MetricSection = () => {
           <div className="flex justify-between items-center">
             <h1 className="font-semibold">Sales Revenue</h1>
             <div className="h-8 w-8 rounded-[0.375rem] bg-accent flex items-center justify-center">
-              <WalletMoney variant="Bold" size={16} className="fill-primary" />
+              <StatusUp variant="Bold" size={16} className="fill-primary" />
             </div>
           </div>
         </div>
