@@ -1,21 +1,39 @@
 import { NextResponse } from "next/server";
-
-type User = {
-  email: string;
-  password: string;
-};
-
-const users: User[] = []; // In-memory storage for users (replace with a database in production)
+import { addUser, getUsers } from "../user";
 
 export async function POST(req: Request) {
-  const { email, password } = await req.json();
+  try {
+    const { email, password, name } = await req.json();
 
-  // Simulate user creation
-  const user = { email, password };
-  users.push(user); // Replace with database logic in production
+    // Validate that all fields are provided
+    if (!email || !password || !name) {
+      return NextResponse.json(
+        { message: "Email and password and name are required" },
+        { status: 400 }
+      );
+    }
+    // Check if the user already exists
+    const users = getUsers();
+    const userExists = users.some((user) => user.email === email);
+    if (userExists) {
+      return NextResponse.json(
+        { message: "User already exists" },
+        { status: 409 }
+      );
+    }
 
-  return NextResponse.json(
-    { message: "User created successfully" },
-    { status: 201 }
-  );
+    // Add the new user to the global users array
+    addUser({ email, password, name });
+
+    return NextResponse.json(
+      { message: "User created successfully" },
+      { status: 201 }
+    );
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      { message: "Internal server error" },
+      { status: 500 }
+    );
+  }
 }

@@ -1,28 +1,17 @@
 import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
-
-type User = {
-  email: string;
-  password: string;
-};
-
-const users: User[] = [
-  {
-    email: "emma@gmail.com",
-    password: "password",
-  },
-]; // In-memory storage for users (replace with a database in production)
+import { getUsers } from "../user";
 
 export async function POST(req: Request) {
   try {
     const { email, password, keepLoggedIn } = await req.json();
 
-    // Simulate user validation
+    // Find the user in the global users array
+    const users = getUsers();
     const user = users.find(
       (u) => u.email === email && u.password === password
     );
     if (!user) {
-      // Return a JSON response with a 401 status
       return NextResponse.json(
         { message: "Invalid credentials" },
         { status: 401 }

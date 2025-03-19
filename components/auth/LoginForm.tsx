@@ -41,7 +41,6 @@ const LoginForm = () => {
         toast.error(error.message);
       },
     });
-    console.log(values);
   }
   return (
     <Form {...form}>
