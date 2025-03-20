@@ -19,7 +19,6 @@ import type { UserGrowth } from "@/types";
 
 export function UserGrowth({ data }: { data: UserGrowth[] }) {
   const chartData = data;
-  console.log(chartData);
 
   const chartConfig = {
     users: {

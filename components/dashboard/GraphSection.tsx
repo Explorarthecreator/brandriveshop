@@ -5,15 +5,12 @@ import { SalesTrend } from "./SalesTrend";
 import { UserGrowth } from "./UserGrowth";
 
 const GraphSection = () => {
-  const { data, isLoading, isSuccess } = useGetGraphDataQuery();
+  const { data, isLoading } = useGetGraphDataQuery();
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  if (isSuccess) {
-    console.log(data);
-  }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <CategoryChart data={data?.categoryDistribution || []} />
