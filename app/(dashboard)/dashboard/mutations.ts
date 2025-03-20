@@ -1,8 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { getMetrics } from "./actions";
+import { getGraphData, getMetrics } from "./actions";
 
 const useGetMetricsQuery = () => {
   return useQuery({ queryKey: ["metrics"], queryFn: getMetrics });
 };
 
-export { useGetMetricsQuery };
+const useGetGraphDataQuery = () => {
+  return useQuery({ queryKey: ["graph"], queryFn: getGraphData });
+};
+export { useGetMetricsQuery, useGetGraphDataQuery };

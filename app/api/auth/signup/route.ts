@@ -5,14 +5,13 @@ export async function POST(req: Request) {
   try {
     const { email, password, name } = await req.json();
 
-    // Validate that all fields are provided
     if (!email || !password || !name) {
       return NextResponse.json(
         { message: "Email and password and name are required" },
         { status: 400 }
       );
     }
-    // Check if the user already exists
+
     const users = getUsers();
     const userExists = users.some((user) => user.email === email);
     if (userExists) {
@@ -22,7 +21,6 @@ export async function POST(req: Request) {
       );
     }
 
-    // Add the new user to the global users array
     addUser({ email, password, name });
 
     return NextResponse.json(

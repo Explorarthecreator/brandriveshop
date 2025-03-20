@@ -1,11 +1,17 @@
-"use client";
-
+import GraphSection from "@/components/dashboard/GraphSection";
 import MetricSection from "@/components/dashboard/MetricSection";
 
 export default function Dashboard() {
   return (
-    <div>
+    <div className="space-y-8">
+      <div>
+        <p className="text-sm text-secondary-foreground ">Hello!</p>
+        <h1 className=" text-2xl lg:text-5xl text-primary">
+          Welcome to Brandrive!
+        </h1>
+      </div>
       <MetricSection />
+      <GraphSection />
     </div>
   );
 }

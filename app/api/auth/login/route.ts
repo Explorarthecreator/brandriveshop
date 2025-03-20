@@ -18,22 +18,18 @@ export async function POST(req: Request) {
       );
     }
 
-    // Generate a session token
     const token = uuidv4();
 
-    // Create a response object
     const response = NextResponse.json({ message: "Logged in successfully" });
 
-    // Set cookie with expiration based on "Keep me logged in"
     response.cookies.set("token", token, {
-      maxAge: keepLoggedIn ? 60 * 60 * 24 * 7 : 60, // 1 week or 1 minute
+      maxAge: keepLoggedIn ? 60 * 60 * 24 * 7 : 60,
       httpOnly: true,
       path: "/",
     });
 
     return response;
   } catch (error) {
-    // Handle unexpected errors
     console.log(error);
     return NextResponse.json(
       { message: "Internal server error" },

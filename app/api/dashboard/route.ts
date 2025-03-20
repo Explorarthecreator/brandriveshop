@@ -9,7 +9,6 @@ export async function GET() {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  // Simulate fetching dashboard data
   const data = { message: "Welcome to the dashboard" };
   return NextResponse.json(data);
 }
