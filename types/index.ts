@@ -29,3 +29,17 @@ export interface GraphData {
   userGrowth: UserGrowth[];
   categoryDistribution: CategoryDistribution[];
 }
+
+export interface SalesData {
+  itemName: string;
+  status: "successful" | "pending" | "failed";
+  price: {
+    currency: string;
+    amount: number;
+  };
+  category: string;
+}
+
+export interface SalesResponse {
+  data: SalesData[];
+}

@@ -1,5 +1,6 @@
 import GraphSection from "@/components/dashboard/GraphSection";
 import MetricSection from "@/components/dashboard/MetricSection";
+import SalesTable from "@/components/dashboard/SalesTable";
 
 export default function Dashboard() {
   return (
@@ -12,6 +13,8 @@ export default function Dashboard() {
       </div>
       <MetricSection />
       <GraphSection />
+
+      <SalesTable />
     </div>
   );
 }
