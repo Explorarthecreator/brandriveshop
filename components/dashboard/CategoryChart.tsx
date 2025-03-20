@@ -66,7 +66,7 @@ export function CategoryChart({ data }: { data: CategoryDistribution[] }) {
             <Pie
               data={chartData}
               dataKey="visitors"
-              nameKey="browser"
+              nameKey="category"
               innerRadius={60}
               strokeWidth={5}
             >
