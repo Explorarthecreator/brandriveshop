@@ -1,4 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## About Project
+
+This is a project to show basic api calls using a mock server. In this project the mock server used is the Nextjs api routes to help mimick API calls. There is no database attached to it.
+
+For test purposes, you can create an account for testing but due to no storage such account can only be used once. 
+
+If you want to test without having to go through the stress of signup you can use the following credentials.
+
+email: good@email.com
+
+password: password
+
+There are several functionalities such as:
+- Login
+- Sign Up
+- Logout 
+- Auto logout
+- Fetching dashboard data.
+
+The UI library used is Shadcn and other dependencies like Rechart and React hook form. Iconsax and Lucide react for the fonts.
 
 ## Getting Started
 
