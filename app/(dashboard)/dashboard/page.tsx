@@ -1,8 +1,19 @@
+"use client";
 import GraphSection from "@/components/dashboard/GraphSection";
 import MetricSection from "@/components/dashboard/MetricSection";
 import SalesTable from "@/components/dashboard/SalesTable";
+import { useAutoLogout } from "@/hook/autoLogout";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/login");
+  };
+
+  useAutoLogout(60000, handleLogout);
   return (
     <div className="space-y-8">
       <div>

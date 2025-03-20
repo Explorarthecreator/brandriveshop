@@ -11,7 +11,7 @@ const generateSalesTableData = () => {
     { name: "Notebook", category: "stationary" },
     { name: "Pen Set", category: "stationary" },
   ];
-  const currencies = ["USD", "EUR", "GBP", "JPY", "INR"];
+  const currencies = ["NGN", "USD"];
   const statuses = ["successful", "pending", "failed"];
 
   const data = [];

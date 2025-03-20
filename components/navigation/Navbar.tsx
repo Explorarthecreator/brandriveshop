@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "../ui/button";
-import { Logout } from "iconsax-react";
+
 import ToggleTheme from "../ToggleTheme";
+import LogoutButton from "../auth/Logout";
 
 const Navbar = () => {
   return (
@@ -10,17 +10,7 @@ const Navbar = () => {
         <h1>Dashboard</h1>
       </div>
       <div className="space-x-4">
-        <Button
-          size={"icon"}
-          variant={"outline"}
-          className=" [&_svg]:fill-black dark:[&_svg]:fill-white"
-        >
-          <Logout
-            size={24}
-            variant="Bold"
-            // className=" fill-amber-200 border-amber-400 text-blue-300 "
-          />
-        </Button>
+        <LogoutButton />
         <ToggleTheme />
       </div>
     </div>
