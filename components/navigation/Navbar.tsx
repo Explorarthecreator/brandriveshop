@@ -9,7 +9,7 @@ const Navbar = () => {
       <div>
         <h1>Dashboard</h1>
       </div>
-      <div className="space-x-4">
+      <div className="space-x-4 flex">
         <LogoutButton />
         <ToggleTheme />
       </div>
